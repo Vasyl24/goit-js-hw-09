@@ -12,6 +12,8 @@ const timer = document.querySelector('.timer');
 const fields = document.querySelectorAll('.field');
 const values = document.querySelectorAll('.value');
 const labels = document.querySelectorAll('.label');
+let countdown = null;
+
 start.disabled = true;
 
 const options = {
@@ -50,11 +52,13 @@ const options = {
           minutes.textContent = addLeadingZero(
             Math.floor(((ms % day) % hour) / minute)
           );
-
           // Remaining seconds
           seconds.textContent = addLeadingZero(
             Math.floor((((ms % day) % hour) % minute) / second)
           );
+          if (ms < 999) {
+            clearInterval(countdown);
+          }
         }, 1000);
       });
     }
