@@ -34,7 +34,7 @@ btn.addEventListener('click', evt => {
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
 
-  return (promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
@@ -42,5 +42,5 @@ function createPromise(position, delay) {
         reject({ position, delay });
       }
     }, delayInput.value);
-  }));
+  });
 }
