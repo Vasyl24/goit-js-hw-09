@@ -37,9 +37,9 @@ function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
-        resolve({ position, delay });
+        resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
       } else {
-        reject({ position, delay });
+        reject(`❌ Rejected promise ${position} in ${delay}ms`);
       }
     }, delayInput.value);
   });
